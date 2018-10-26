@@ -7,6 +7,7 @@ var legendText = 'Show Answers';
 
 var targets = document.getElementsByClassName('toggle');
 var buttons = document.getElementsByClassName('slide-toggler');
+var sections = document.getElementsByTagName('section');
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].style.visibility = 'hidden';
@@ -33,6 +34,9 @@ document.addEventListener('click', function (event) {
   if (event.target.matches('.slide-toggler')) {
 		toggleSlide(event.target);
 	}
+  if (event.target.matches('.shuffle')) {
+    shuffle()
+  }
 }, false);
 
 
@@ -76,5 +80,30 @@ function toggleSlide(t){
     for (let i = 0; i < slideTargets.length; i++) {
       slideTargets[i].style.visibility='visible';
     }
+  }
+}
+
+
+function shuffle(){
+  var len = sections.length -1 ;
+  var random = Array.from({length: len}, () => Math.floor(Math.random() * len) + 1);
+  for (let i = 0; i < len; i ++) {
+    var
+      element_a = sections[random[i]];
+      element_b = sections[Math.floor(Math.random() * len) + 1];
+      p1 = element_a.parentNode;
+      p2 = element_b.parentNode;
+      sib = element_b.nextSibling;
+    if(sib=== element_a) {
+      sib= sib.nextSibling;
+      p1.replaceChild(element_b, element_a);
+    }
+    if(sib) {
+      p2.insertBefore(element_a, sib);
+    }
+    else {
+      p2.appendChild(element_a);
+    }
+  Reveal.slide(0);
   }
 }

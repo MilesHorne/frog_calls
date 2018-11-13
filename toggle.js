@@ -89,7 +89,6 @@ function toggleSlide(t){
 function shuffle(container, elements){
   var start = 1
   for (var i = elements.length - start; i >= start; i--) {
-    console.log(i)
     container.appendChild(elements[Math.random() * i | start]);
   Reveal.slide(0)
   }

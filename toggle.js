@@ -7,7 +7,8 @@ var legendText = 'Show Answers';
 
 var targets = document.getElementsByClassName('toggle');
 var buttons = document.getElementsByClassName('slide-toggler');
-var sections = document.getElementsByTagName('section');
+var container = document.getElementsByClassName('slides')[0]
+var sections = document.getElementsByTagName('section')
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].style.visibility = 'hidden';
@@ -35,7 +36,7 @@ document.addEventListener('click', function (event) {
 		toggleSlide(event.target);
 	}
   if (event.target.matches('.shuffle')) {
-    shuffle()
+    shuffle(container, sections)
   }
 }, false);
 
@@ -84,26 +85,12 @@ function toggleSlide(t){
 }
 
 
-function shuffle(){
-  var len = sections.length -1 ;
-  var random = Array.from({length: len}, () => Math.floor(Math.random() * len) + 1);
-  for (let i = 0; i < len; i ++) {
-    var
-      element_a = sections[random[i]];
-      element_b = sections[Math.floor(Math.random() * len) + 1];
-      p1 = element_a.parentNode;
-      p2 = element_b.parentNode;
-      sib = element_b.nextSibling;
-    if(sib=== element_a) {
-      sib= sib.nextSibling;
-      p1.replaceChild(element_b, element_a);
-    }
-    if(sib) {
-      p2.insertBefore(element_a, sib);
-    }
-    else {
-      p2.appendChild(element_a);
-    }
-  Reveal.slide(0);
+// Shuffle slides 
+function shuffle(container, elements){
+  var start = 1
+  for (var i = elements.length - start; i >= start; i--) {
+    console.log(i)
+    container.appendChild(elements[Math.random() * i | start]);
+  Reveal.slide(0)
   }
 }

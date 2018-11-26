@@ -12,43 +12,49 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 #toggler label {
   font-size: 1.5em;
   cursor: pointer;
 }
-
 #toggler input {
   cursor: pointer;
 }
 
 
 .slide-toggler {
+  cursor: pointer;
+  background-color: rgb(200, 200, 200);
   display: block;
-  margin-bottom:20px;
+  padding: 8px;
+  /* border: 0px solid white; */
+  /* font-size: .5em; */
   margin-left: auto;
   margin-right: auto;
-  padding:8px;
-  background-color: #F0F3F4;
-  border: 0px solid white;
-  cursor: pointer;
+  margin-bottom:20px;
+}
+.slide-toggler:hover {
+  background-color: rgb(230, 230, 230);
+}
+.slide-toggler:focus {
+  outline: 0;
 }
 
-.slide-toggler:hover {
-  background-color:  #F0F3F4;
-}
 
 .shuffle {
-  border: 0px solid white;
   cursor: pointer;
+  background-color: rgb(200, 200, 200);
+  display: block;
+  padding: 8px;
+  /* border: 0px solid white; */
+  /* font-size: .5em; */
   position: absolute;
   z-index: 9999;
-  border: 1px solid white;
-  font-size: .5em;
   top: 80px;
-  left:50px;
+  left: 50px;
 }
-
 .shuffle:hover {
-  background-color:  #F0F3F4;
+  background-color: rgb(230, 230, 230);
+}
+.shuffle:focus {
+  outline: 0;
 }

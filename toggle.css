@@ -58,3 +58,7 @@
 .shuffle:focus {
   outline: 0;
 }
+
+h2 {
+  text-transform: none;
+}
